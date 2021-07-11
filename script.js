@@ -48,8 +48,6 @@ function gameRound() {
         cpu = computerPlay();
         p1 = humanPlay();
 
-        console.log(`Playing to 2\n Player: ${p1Score}\n Cpu: ${cpuScore}`)
-    
         if(p1 == cpu) {
             console.log('Draw!');
 
@@ -77,5 +75,7 @@ function gameRound() {
             console.log('Rock beats Scissor! Cpu wins');
             cpuScore += 1;
         }   
+
+        console.log(`Playing to 2\n Player: ${p1Score}\n Cpu: ${cpuScore}`)
     }
 }
