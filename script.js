@@ -43,24 +43,37 @@ function gameRound() {
     cpuScore = 0;
     p1Score = 0;
 
-    while(cpuScore <= 2 || p1Score <= 2) {
+    while(cpuScore <= 1 || p1Score <= 1) {
         
         cpu = computerPlay();
         p1 = humanPlay();
     
         if(p1 == cpu) {
-            console.log(cpu);
-            console.log(p1);
             console.log('Draw!');
-        } else if (p1 == 'Rock' && cpu == 'Scissor') {
-            console.log(cpu);
-            console.log(p1);
-            console.log('Rock beats Scissor! Player wins');
-        } else if (p1 == 'Rock' && cpu == 'Paper') {
-            console.log(cpu);
-            console.log(p1);
-            console.log('Paper beats Rock! Cpu wins');
-        }
-    }
 
+        } else if (p1 == 'Rock' && cpu == 'Scissor') {
+            console.log('Rock beats Scissor! Player wins');
+            p1Score += 1;
+
+        } else if (p1 == 'Rock' && cpu == 'Paper') {
+            console.log('Paper beats Rock! Cpu wins');
+            cpuScore += 1;
+
+        } else if (p1 == 'Paper' && cpu == 'Rock') {
+            console.log('Paper beats Rock! Player wins');
+            p1Score += 1;
+
+        } else if (p1 == 'Paper' && cpu == 'Scissor') {
+            console.log('Scissor beats Paper! Cpu wins');
+            cpuScore += 1;
+
+        } else if (p1 == 'Scissor' && cpu == 'Paper') {
+            console.log('Scissor beats Paper! Player wins');
+            p1Score += 1;
+            
+        } else if (p1 == 'Scissor' && cpu == 'Rock') {
+            console.log('Rock beats Scissor! Cpu wins');
+            cpuScore += 1;
+        }   
+    }
 }
