@@ -42,8 +42,9 @@ function gameRound() {
 
     cpuScore = 0;
     p1Score = 0;
+    rounds = selectRounds();
 
-    while((cpuScore < 2) && (p1Score < 2)) {
+    while((cpuScore < rounds) && (p1Score < rounds)) {
         
         cpu = computerPlay();
         p1 = humanPlay();
@@ -76,6 +77,13 @@ function gameRound() {
             cpuScore += 1;
         }   
 
-        console.log(`Playing to 2\n Player: ${p1Score}\n Cpu: ${cpuScore}`)
+        console.log(`Playing to ${rounds}\n Player: ${p1Score}\n Cpu: ${cpuScore}`)
     }
+}
+
+function selectRounds() {
+    rounds =  +prompt(`{Enter the number of rounds: (1, 2, 3 ...):`);
+    if(isNaN(rounds)){
+        selectRounds();
+    } return rounds;
 }
