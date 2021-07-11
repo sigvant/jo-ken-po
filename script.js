@@ -43,10 +43,12 @@ function gameRound() {
     cpuScore = 0;
     p1Score = 0;
 
-    while(cpuScore <= 1 || p1Score <= 1) {
+    while((cpuScore < 2) && (p1Score < 2)) {
         
         cpu = computerPlay();
         p1 = humanPlay();
+
+        console.log(`Playing to 2\n Player: ${p1Score}\n Cpu: ${cpuScore}`)
     
         if(p1 == cpu) {
             console.log('Draw!');
@@ -70,7 +72,7 @@ function gameRound() {
         } else if (p1 == 'Scissor' && cpu == 'Paper') {
             console.log('Scissor beats Paper! Player wins');
             p1Score += 1;
-            
+
         } else if (p1 == 'Scissor' && cpu == 'Rock') {
             console.log('Rock beats Scissor! Cpu wins');
             cpuScore += 1;
