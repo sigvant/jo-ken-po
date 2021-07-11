@@ -79,6 +79,12 @@ function gameRound() {
 
         console.log(`Playing to ${rounds}\n Player: ${p1Score}\n Cpu: ${cpuScore}`)
     }
+
+    if (p1Score == rounds) {
+        alert(`Congratulations, you won!`);
+    } else {
+        alert(`I think our CPU cheats`);
+    }
 }
 
 function selectRounds() {
