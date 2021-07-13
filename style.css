@@ -1,0 +1,33 @@
+.choices {
+    display:flex;
+    flex: 1;    
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.choice {
+    border: 3px solid gold;
+    border-radius: 5px;
+    margin: 2rem;
+    font-size: 1.5rem;
+    padding: 2rem 1rem;
+    transition: all 0.1s;
+    width: 125px;
+    text-align: center;
+    color: gray;
+    background: rgba(0,0,0,0.7);
+    text-shadow: 0 0 7px black;
+}
+
+#rock {
+    border: 3px solid silver;
+}
+
+#paper {
+    border: 3px solid brown;
+}
+
+#scissor {
+    border: 3px solid gold;
+}
