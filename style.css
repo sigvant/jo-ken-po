@@ -1,7 +1,20 @@
 .choices {
     display:flex;
     flex: 1;    
-    min-height: 100vh;
+    min-height: 20vh;
+    align-items: center;
+    justify-content: center;
+}
+
+#results {
+    min-height: 10vh;
+
+}
+
+h1 {
+    display:flex;
+    flex: 1;    
+    min-height: 10vh;
     align-items: center;
     justify-content: center;
 }
@@ -30,4 +43,12 @@
 
 #scissor {
     border: 3px solid gold;
+}
+
+.info-box {
+    display:flex;
+    flex: 1;    
+    min-height: 20vh;
+    align-items: center;
+    justify-content: center;
 }

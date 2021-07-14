@@ -18,80 +18,57 @@ function computerPlay() {
     } return CPUResult;
 }
 
-// funciton for human play, here player sill select rock, scissor or paper.
-function humanPlay() {
-    humanChoice = prompt(`Choose "Rock", "Paper" or "Scissor"`);
-    humanChoice = humanChoice.toUpperCase();
-    humanResult = null;
-    switch(humanChoice) {
-        case 'ROCK':
-            humanResult = 'Rock';
-            break;
-        case 'PAPER':
-            humanResult = 'Paper';
-            break;
-        case 'SCISSOR':
-            humanResult = 'Scissor';
-            break;
-        default:
-            humanPlay();
-    } return humanResult;
+function playRound(choice) {
+
+    cpu = computerPlay();
+    p1 = choice;
+
+    if(p1 == cpu) {
+        const span = document.getElementById('results');
+        span.textContent = `CPU played Rock! It's a Draw!`;
+
+    } else if (p1 == 'Rock' && cpu == 'Scissor') {
+        const span = document.getElementById('results');
+        span.textContent = `CPU played Scissor! Victory!`;
+        p1Score += 1;
+
+    } else if (p1 == 'Rock' && cpu == 'Paper') {
+        const span = document.getElementById('results');
+        span.textContent = `CPU played Paper! Defeat!`;
+        cpuScore += 1;
+
+    } else if (p1 == 'Paper' && cpu == 'Rock') {
+        const span = document.getElementById('results');
+        span.textContent = `CPU played Rock! Victory!`;
+        p1Score += 1;
+
+    } else if (p1 == 'Paper' && cpu == 'Scissor') {
+        const span = document.getElementById('results');
+        span.textContent = `CPU played Scissor! Defeat!`;
+        cpuScore += 1;
+
+    } else if (p1 == 'Scissor' && cpu == 'Paper') {
+        const span = document.getElementById('results');
+        span.textContent = `CPU played Paper! Victory!`;
+        p1Score += 1;
+
+    } else if (p1 == 'Scissor' && cpu == 'Rock') {
+        const span = document.getElementById('results');
+        span.textContent = `CPU played Rock! Defeat!`;
+        cpuScore += 1;
+    }   
+    console.log(`\nPlayer Score:${p1Score}\nCPU Score:${cpuScore}`)
 }
 
-function gameRound() {
 
-    cpuScore = 0;
-    p1Score = 0;
-    rounds = selectRounds();
+let cpuScore = 0;
+let p1Score = 0;
 
-    while((cpuScore < rounds) && (p1Score < rounds)) {
-        
-        cpu = computerPlay();
-        p1 = humanPlay();
+const iChooseRock = document.getElementById('rock');
+iChooseRock.addEventListener('click', () => {playRound('Rock')});
 
-        if(p1 == cpu) {
-            console.log('Draw!');
+const iChoosePaper = document.getElementById('paper');
+iChoosePaper.addEventListener('click', () => {playRound('Paper')});
 
-        } else if (p1 == 'Rock' && cpu == 'Scissor') {
-            console.log('Rock beats Scissor! Player wins');
-            p1Score += 1;
-
-        } else if (p1 == 'Rock' && cpu == 'Paper') {
-            console.log('Paper beats Rock! Cpu wins');
-            cpuScore += 1;
-
-        } else if (p1 == 'Paper' && cpu == 'Rock') {
-            console.log('Paper beats Rock! Player wins');
-            p1Score += 1;
-
-        } else if (p1 == 'Paper' && cpu == 'Scissor') {
-            console.log('Scissor beats Paper! Cpu wins');
-            cpuScore += 1;
-
-        } else if (p1 == 'Scissor' && cpu == 'Paper') {
-            console.log('Scissor beats Paper! Player wins');
-            p1Score += 1;
-
-        } else if (p1 == 'Scissor' && cpu == 'Rock') {
-            console.log('Rock beats Scissor! Cpu wins');
-            cpuScore += 1;
-        }   
-
-        console.log(`Playing to ${rounds}\n Player: ${p1Score}\n Cpu: ${cpuScore}`)
-    }
-
-    if (p1Score == rounds) {
-        alert(`Congratulations, you won!`);
-    } else {
-        alert(`I think our CPU cheats`);
-    }
-}
-
-function selectRounds() {
-    rounds =  +prompt(`{Enter the number of rounds: (1, 2, 3 ...):`);
-    if(isNaN(rounds)){
-        selectRounds();
-    } return rounds;
-}
-
-test
+const iChooseScissor = document.getElementById('scissor');
+iChooseScissor.addEventListener('click', () => {playRound('Scissor')});
