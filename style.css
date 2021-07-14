@@ -1,13 +1,54 @@
+body {
+    background: url('./background.jpg');
+}
+
 .choices {
     display:flex;
     flex: 1;    
-    min-height: 20vh;
+    min-height: 30vh;
     align-items: center;
     justify-content: center;
+    border: 2px solid white;
+    overflow: auto;
+    max-width: 69vh;
+    margin: auto;
+    background-color: rgba(0,0,0,0.9);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: gold;
+    font-weight: 600;
+    font-size: 40px;
 }
 
 #results {
-    min-height: 10vh;
+    
+    font-size: 35px;
+    font-family: monospace;
+    color: seashell;
+    padding: 1rem;
+    
+
+}
+
+.fade-in {
+    animation: fadeIn 2s;
+    opacity: 1;
+    }
+
+#score {
+    
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: seashell;
+    padding: 1rem;
+
+}
+
+#rounds {
+    
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: seashell;
+    padding: 1rem;
 
 }
 
@@ -17,6 +58,9 @@ h1 {
     min-height: 10vh;
     align-items: center;
     justify-content: center;
+    color:steelblue;
+    font-family: monospace;
+    font-size: 100px;
 }
 
 .choice {
@@ -28,9 +72,13 @@ h1 {
     transition: all 0.1s;
     width: 125px;
     text-align: center;
-    color: gray;
-    background: rgba(0,0,0,0.7);
-    text-shadow: 0 0 7px black;
+    color: black;
+    background: white;
+    text-shadow: 0 0 7px silver;
+}
+
+.choice:hover {
+    background: silver;
 }
 
 #rock {
@@ -47,8 +95,10 @@ h1 {
 
 .info-box {
     display:flex;
-    flex: 1;    
+    flex: 1; 
+    flex-direction: column;   
     min-height: 20vh;
     align-items: center;
     justify-content: center;
 }
+
